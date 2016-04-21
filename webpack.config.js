@@ -2,19 +2,25 @@ const path = require('path');
 const config = require('./config').get();
 const webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var AssetsPlugin = require('assets-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './client/src/js/client.js',
+  entry: {
+    scripts: './client/src/js/client.js',
+    styles: './client/src/scss/app.scss'
+  },
   output: {
+    filename: '[name].[hash:8].js',
     path: './public',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
       { test: /\.html$/, loader: 'underscore-template', query: { engine: 'lodash', attributes: ['img:src', 'object:data'] }},
-      { test: /\.scss$/, loaders: ['style', 'css', 'postcss', 'sass'] },
-      { test: /\.(jpe?g|png|gif|svg)$/, loader: 'url?limit=10000&name=[name].[ext]' }
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract(['css', 'postcss', 'sass']) },
+      { test: /\.(jpe?g|png|gif|svg)$/, loader: 'url?limit=10000&name=[name].[hash:8].[ext]' }
     ]
   },
   resolve: {
@@ -37,11 +43,15 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         'DOGS_POLLING_INTERVAL_MS': JSON.stringify(config.DOGS_POLLING_INTERVAL_MS),
+        'ERROR_DISPLAY_TIMEOUT_MS': JSON.stringify(config.ERROR_DISPLAY_TIMEOUT_MS),
         'GAPI_CLIENT_ID': JSON.stringify(config.GAPI_CLIENT_ID)
       }
     }),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin('[name].[hash:8].css'),
+    new AssetsPlugin({ path: path.join(__dirname, 'public') })
   ],
   sassLoader: {
     includePaths: [

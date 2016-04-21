@@ -8,7 +8,6 @@ _.templateSettings.imports = {
     __webpack_require__: __webpack_require__
 };
 var WebFont = require('webfontloader');
-var styles = require('../scss/app.scss');
 var app = require('./app');
 var auth = require('imports?this=>window!exports?window.clientInit&window.onGAPILoadCallback!./auth')
 
