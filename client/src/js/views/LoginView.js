@@ -1,11 +1,10 @@
 /* global gapi */
 
-var fs = require('fs');
 var _ = require('lodash');
 var Backbone = require('backbone');
 var app = require('../app');
-var LoginTemplate = fs.readFileSync(__dirname + '/LoginTemplate.html', 'utf8');
-var LoggedTemplate = fs.readFileSync(__dirname + '/LoggedTemplate.html', 'utf8');
+var loginTemplate = require('./LoginTemplate.html');
+var loggedTemplate = require('./LoggedTemplate.html');
 
 var LoginView = Backbone.View.extend({
   initialize: function() {
@@ -22,10 +21,10 @@ var LoginView = Backbone.View.extend({
   render: function() {
     if (app.session.get('logged')) {
       console.log('logout rendered');
-      this.template = _.template(LoggedTemplate);
+      this.template = loggedTemplate;
     } else {
       console.log('login rendered');
-      this.template = _.template(LoginTemplate);
+      this.template = loginTemplate;
     }
 
     this.$el.html(this.template({

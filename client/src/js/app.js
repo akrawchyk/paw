@@ -1,12 +1,11 @@
-var fs = require('fs');
 var _ = require('lodash');
 var $ = require('jquery');
-var ErrorTemplate = fs.readFileSync(__dirname + '/views/ErrorTemplate.html', 'utf8');
+var errorTemplate = require('./views/ErrorTemplate.html');
 
 var app = {};
 
 app.error = function(message) {
-  var template = _.template(ErrorTemplate);
+  var template = errorTemplate;
   template = template({
     message: message
   });

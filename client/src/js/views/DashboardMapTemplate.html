@@ -5,7 +5,7 @@
             <li class="hydrant__item hyrdrant__logo">Dogs in <%= hydrant %></li>
             <% _.forEach(dogs, function(dog) { %>
             <li class="hydrant__item">
-                <img class="hydrant__dog" src="<%= dog.avatar ? dog.avatar : '/img/paw_avatar_stock.png' %>" alt="<%= dog.name %>">
+                <img class="hydrant__dog" src="<%= dog.avatar ? dog.avatar : 'img/paw_avatar_stock.png' %>" alt="<%= dog.name %>">
             </li>
             <% }); %>
         </ul>

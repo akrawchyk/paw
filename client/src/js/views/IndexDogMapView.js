@@ -1,8 +1,7 @@
-var fs = require('fs');
 var _ = require('lodash');
 var Backbone = require('backbone');
 var $ = require('jquery');
-var IndexDogMapTemplate = fs.readFileSync(__dirname + '/IndexDogMapTemplate.html', 'utf8');
+var indexDogMapTemplate = require('./IndexDogMapTemplate.html');
 
 function mapReached() {
   var viewport = window.innerHeight;
@@ -16,7 +15,7 @@ function mapReached() {
 }
 
 var IndexDogMapView = Backbone.View.extend({
-  template: _.template(IndexDogMapTemplate),
+  template: indexDogMapTemplate,
 
   initialize: function() {
     this.render = _.bind(this.render, this);

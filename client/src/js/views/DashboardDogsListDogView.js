@@ -1,11 +1,10 @@
-var fs = require('fs');
 var _ = require('lodash');
 var $ = require('jquery');
 var Backbone = require('backbone');
-var DashboardDogsListDogTemplate = fs.readFileSync(__dirname + '/DashboardDogsListDogTemplate.html', 'utf8');
+var dashboardDogsListDogTemplate = require('./DashboardDogsListDogTemplate.html');
 
 var DashboardDogsListDogView = Backbone.View.extend({
-  template: _.template(DashboardDogsListDogTemplate),
+  template: dashboardDogsListDogTemplate,
 
   events: {
     'click .button--check-in': 'handleCheckedInChange',

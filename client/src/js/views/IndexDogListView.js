@@ -1,8 +1,7 @@
-var fs = require('fs');
 var _ = require('lodash');
 var Backbone = require('backbone');
 var Flickity = require('flickity-imagesloaded');
-var IndexDogListTemplate = fs.readFileSync(__dirname + '/IndexDogListTemplate.html', 'utf8');
+var indexDogListTemplate = require('./IndexDogListTemplate.html');
 
 function assignFakeCheckins(dog) {
   var checkins;
@@ -40,7 +39,7 @@ function assignFakeCheckins(dog) {
 }
 
 var IndexDogListView = Backbone.View.extend({
-  template: _.template(IndexDogListTemplate),
+  template: indexDogListTemplate,
 
   initialize: function() {
     this.render = _.bind(this.render, this);

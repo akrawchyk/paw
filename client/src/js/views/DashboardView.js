@@ -1,13 +1,12 @@
-var fs = require('fs');
 var _ = require('lodash');
 var Backbone = require('backbone');
 var DogsCollection = require('../collections/DogsCollection');
-var DashboardTemplate = fs.readFileSync(__dirname + '/DashboardTemplate.html', 'utf8');
+var dashboardTemplate = require('./DashboardTemplate.html');
 var DashboardDogsListView = require('../views/DashboardDogsListView');
 var DashboardMapView = require('../views/DashboardMapView');
 
 var DashboardView = Backbone.View.extend({
-  template: _.template(DashboardTemplate),
+  template: dashboardTemplate,
 
   initialize: function() {
     this.render();

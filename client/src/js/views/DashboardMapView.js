@@ -1,11 +1,10 @@
-var fs = require('fs');
 var _ = require('lodash');
 var $ = require('jquery');
 var Backbone = require('backbone');
-var DashboardMapTemplate = fs.readFileSync(__dirname + '/DashboardMapTemplate.html', 'utf8');
+var dashboardMapTemplate = require('./DashboardMapTemplate.html');
 
 var DashboardMapView = Backbone.View.extend({
-  template: _.template(DashboardMapTemplate),
+  template: dashboardMapTemplate,
 
   initialize: function() {
     this.render = _.bind(this.render, this);

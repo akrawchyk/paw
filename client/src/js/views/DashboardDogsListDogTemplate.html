@@ -1,5 +1,5 @@
 <div class="dog dog--dashboard<% if (checked_in) { %> dog--checked-in<% } %>">
-    <div class="dog__avatar" style="background-image: url(<%= avatar ? avatar : '/img/paw_avatar_stock.png' %>);"></div>
+    <div class="dog__avatar" style="background-image: url(<%= avatar ? avatar : 'img/paw_avatar_stock.png' %>);"></div>
     <div class="dog__info">
         <p class="dog__name">
             <a href="/api/dogs/<%= display_id %>"><%= name %></a>
@@ -19,7 +19,7 @@
                     </div> <!-- end .dropdown__status -->
                     <div class="dropdown__arrow-container">
                         <div class="dropdown__arrow">
-                             <object class="dropdown__arrow-svg" type="image/svg+xml" data="/img/arrow.svg"></object>
+                             <object class="dropdown__arrow-svg" type="image/svg+xml" data="../../img/arrow.svg"></object>
                         </div>
                     </div>
                 </div> <!-- end .dropdown__current-selection -->

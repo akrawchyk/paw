@@ -1,7 +1,6 @@
-var fs = require('fs');
 var _ = require('lodash');
 var Backbone = require('backbone');
-var IndexTemplate = fs.readFileSync(__dirname + '/IndexTemplate.html', 'utf8');
+var indexTemplate = require('./IndexTemplate.html');
 var IndexDogListView = require('../views/IndexDogListView');
 var IndexDogMapView = require('../views/IndexDogMapView');
 var DogsCollection = require('../collections/DogsCollection');
@@ -9,7 +8,7 @@ var Jump = require('jump.js');
 var $ = require('jquery');
 
 var IndexView = Backbone.View.extend({
-  template: _.template(IndexTemplate),
+  template: indexTemplate,
 
   events: {
     'click .jump-to-watch': 'onJumpToWatch',
