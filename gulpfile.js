@@ -3,7 +3,7 @@
 const fs             = require('fs');
 const path           = require('path');
 const gulp           = require('gulp');
-// const gutil          = require('gulp-util');
+const gutil          = require('gulp-util');
 const webpack        = require('webpack');
 const webpackConfig  = require('./webpack.config.js');
 const del            = require('del');
@@ -15,8 +15,8 @@ const nodemon        = require('gulp-nodemon');
 gulp.task('webpack', (done) => {
   const myConfig = Object.create(webpackConfig);
   webpack(myConfig, (err, stats) => {
-    // if (err) throw new gutil.PluginError('webpack', err);
-    // gutil.log('[webpack]', stats.toString({ colors: true }));
+    if (err) throw new gutil.PluginError('webpack', err);
+    gutil.log('[webpack]', stats.toString({ colors: true }));
     done();
   });
 });
