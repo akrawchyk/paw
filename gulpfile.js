@@ -27,7 +27,7 @@ gulp.task('nunjucks', () => {
 });
 
 gulp.task('extras', () => {
-  return gulp.src('./client/src/**/*.{txt,json,xml,jpeg,jpg,png,gif,svg}')
+  return gulp.src(['./client/src/**/*.{txt,json,xml,ico}', './client/src/favicon-152.png'])
     .pipe(gulp.dest('./public/'));
 });
 
@@ -41,8 +41,10 @@ gulp.task('watch', ['nunjucks', 'extras', 'webpack'], (done) => {
 
   gulp.watch('./client/src/js/**/*.js', ['webpack']);
   gulp.watch('./client/src/js/**/*.html', ['webpack']);
+  gulp.watch('./client/src/scss/**/*.scss', ['webpack']);
+  gulp.watch('./client/src/img/**/*', ['webpack']);
   gulp.watch('./client/src/templates/**/*.html', ['nunjucks']);
-  gulp.watch('./client/src/**/*.{txt,json,xml,jpeg,jpg,png,gif,svg}', ['extras']);
+  gulp.watch('./client/src/**/*.{txt,json,xml,ico}', ['extras']);
   done();
 });
 
@@ -70,7 +72,7 @@ gulp.task('critical', ['default'], function() {
 });
 
 gulp.task('clean', () => {
-  return del(['public/*', '!public/favicon.ico', '!public/favicon-152.png']);
+  return del('public/*');
 });
 
 gulp.task('default', ['webpack', 'nunjucks', 'extras']);
