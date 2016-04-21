@@ -8,18 +8,18 @@ $sidebar-width: 300px;
     z-index: 10;
 
     @media #{$medium-up} {
-	background: $secondary-color;
-	height: 0;
-	padding: 0;
+        background: $secondary-color;
+        height: 0;
+        padding: 0;
     }
 }
 
 .header__link-container {
     @media #{$medium-up} {
-	float: right;
-	line-height: 1;
-	position: relative;
-	top: 44px;
+        float: right;
+        line-height: 1;
+        position: relative;
+        top: 44px;
     }
 }
 
@@ -54,7 +54,7 @@ $sidebar-width: 300px;
         &:hover {
             fill: darken($primary-color, 20%);
         }
-        
+
         @media #{$medium-up}{
             fill: $primary-color;
             height:20px;
@@ -69,7 +69,7 @@ $sidebar-width: 300px;
     color: $white;
 
     @media #{$medium-up} {
-	color: $primary-color;
+        color: $primary-color;
     }
 }
 
@@ -103,13 +103,13 @@ $sidebar-width: 300px;
         width: $sidebar-width;
 
         &:hover {
-        background-color: darken($primary-color, 10%)
+            background-color: darken($primary-color, 10%)
         }
     }
 
     .header__logo {
         background-size: 180px;
-        background: url(/img/dashboard_logo.svg) 50% 50% no-repeat;
+        background: url(../img/dashboard_logo.svg) 50% 50% no-repeat;
         height: 100%;
         margin-left: rem-calc(43px);
         display: block;

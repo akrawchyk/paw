@@ -102,7 +102,7 @@
 }
 
 .decorations {
-    background: url(/img/wood.png) $white;
+    background: url(../img/wood.png) $white;
     border-top: 2px solid $paw-gray;
     height: 100px;
     margin-top: -42px;
@@ -167,7 +167,7 @@
 
 
 .embed-poster {
-    background: url('/img/isl-paw-video-stock.jpg') no-repeat center center;
+    background: url(../img/isl-paw-video-stock.jpg) no-repeat center center;
     background-size: cover;
     position: absolute;
     height: 100%;
@@ -309,7 +309,7 @@
 
 
 .map {
-    background: url(/img/wood.png);
+    background: url(../img/wood.png);
     position: relative;
 }
 
@@ -326,7 +326,7 @@
 }
 
 .map__image {
-    background: url('/img/paw_map.svg') no-repeat center center;
+    background: url(../img/paw_map.svg) no-repeat center center;
     position: absolute;
     top: 0;
     left: 0;
@@ -610,7 +610,7 @@
 
 .contact {
     background: $primary-color;
-    background-image: url(/img/isl-paw-squiggle.svg);
+    background-image: url(../img/isl-paw-squiggle.svg);
     background-size: 240px 280px;
     padding-left: 40px;
     padding-right: 40px;
